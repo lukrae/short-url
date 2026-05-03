@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>短链接 - 7.2bd.net</title>
+  <style>
+    table { border-collapse: collapse; width: 100%; max-width: 600px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f5f5f5; }
+  </style>
+</head>
+<body>
+  <h1>现有短链接</h1>
+  <table id="linkTable">
+    <tr><th>短码</th><th>目标链接</th><th>短网址</th></tr>
+  </table>
+  <script src="links.js"></script>
+  <script>
+    const table = document.getElementById('linkTable');
+    for (const [code, url] of Object.entries(LINKS)) {
+      const row = table.insertRow();
+      row.insertCell().textContent = code;
+      row.insertCell().innerHTML = `<a href="${url}">${url}</a>`;
+      row.insertCell().innerHTML = `<a href="/${code}">7.2bd.net/${code}</a>`;
+    }
+  </script>
+</body>
+</html>
